@@ -1,0 +1,128 @@
+{
+  "kind": "collectionType",
+  "collectionName": "breeding_dogs",
+  "info": {
+    "singularName": "breeding-dog",
+    "pluralName": "breeding-dogs",
+    "displayName": "Breeding Dog",
+    "description": "Adult dogs used for breeding with complete health records"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "registeredName": {
+      "type": "string"
+    },
+    "breed": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": ["male", "female"],
+      "required": true
+    },
+    "birthDate": {
+      "type": "date",
+      "required": true
+    },
+    "color": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "height": {
+      "type": "decimal"
+    },
+    "microchipNumber": {
+      "type": "string"
+    },
+    "registrationNumber": {
+      "type": "string"
+    },
+    "registrationOrganization": {
+      "type": "enumeration",
+      "enum": ["SKG", "FCI", "AKC", "KC", "CKC", "other"]
+    },
+    "pedigreeNumber": {
+      "type": "string"
+    },
+    "healthDocuments": {
+      "type": "component",
+      "component": "shared.health-document",
+      "repeatable": true
+    },
+    "geneticTests": {
+      "type": "json"
+    },
+    "healthClearances": {
+      "type": "json"
+    },
+    "temperamentTest": {
+      "type": "json"
+    },
+    "conformation": {
+      "type": "json"
+    },
+    "showTitles": {
+      "type": "json"
+    },
+    "workingTitles": {
+      "type": "json"
+    },
+    "breedingHistory": {
+      "type": "json"
+    },
+    "isRetired": {
+      "type": "boolean",
+      "default": false
+    },
+    "retirementDate": {
+      "type": "date"
+    },
+    "isAvailableForStud": {
+      "type": "boolean",
+      "default": false
+    },
+    "studFee": {
+      "type": "decimal"
+    },
+    "mediaGalleries": {
+      "type": "component",
+      "component": "shared.media-gallery",
+      "repeatable": true
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "temperament": {
+      "type": "text"
+    },
+    "breeder": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::breeder.breeder",
+      "inversedBy": "breedingDogs"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    }
+  }
+}

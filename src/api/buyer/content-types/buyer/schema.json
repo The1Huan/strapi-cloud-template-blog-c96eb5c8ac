@@ -1,0 +1,151 @@
+{
+  "kind": "collectionType",
+  "collectionName": "buyers",
+  "info": {
+    "singularName": "buyer",
+    "pluralName": "buyers",
+    "displayName": "Buyer",
+    "description": "Dog buyers with preferences and profiles"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "userId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "preferences": {
+      "type": "component",
+      "component": "shared.buyer-preferences",
+      "required": true
+    },
+    "location": {
+      "type": "component",
+      "component": "shared.location-data",
+      "required": true
+    },
+    "housingType": {
+      "type": "enumeration",
+      "enum": ["apartment", "house", "farm", "other"]
+    },
+    "hasYard": {
+      "type": "boolean"
+    },
+    "yardSize": {
+      "type": "enumeration",
+      "enum": ["none", "small", "medium", "large", "acreage"]
+    },
+    "householdSize": {
+      "type": "integer"
+    },
+    "childrenAges": {
+      "type": "json"
+    },
+    "otherPets": {
+      "type": "json"
+    },
+    "previousDogExperience": {
+      "type": "richtext"
+    },
+    "workSchedule": {
+      "type": "string"
+    },
+    "activeDogOwner": {
+      "type": "boolean"
+    },
+    "activityLevel": {
+      "type": "enumeration",
+      "enum": ["low", "moderate", "high", "very_high"]
+    },
+    "veterinarian": {
+      "type": "json"
+    },
+    "references": {
+      "type": "json"
+    },
+    "emergencyContact": {
+      "type": "json"
+    },
+    "isVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "verificationLevel": {
+      "type": "enumeration",
+      "enum": ["none", "basic", "verified"],
+      "default": "none"
+    },
+    "joinedDate": {
+      "type": "datetime",
+      "default": "2024-01-01T00:00:00.000Z"
+    },
+    "lastActive": {
+      "type": "datetime"
+    },
+    "applicationCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "successfulAdoptions": {
+      "type": "integer",
+      "default": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "newsletterSubscribed": {
+      "type": "boolean",
+      "default": true
+    },
+    "savedSearches": {
+      "type": "json"
+    },
+    "favoriteBreeds": {
+      "type": "json"
+    },
+    "favoriteBreeders": {
+      "type": "json"
+    },
+    "applications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::application.application",
+      "mappedBy": "buyer"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "email"
+    }
+  }
+}

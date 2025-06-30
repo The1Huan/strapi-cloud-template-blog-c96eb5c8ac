@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_shared_contact_info",
+  "info": {
+    "displayName": "Contact Information",
+    "icon": "phone",
+    "description": "Multi-channel contact details for breeders"
+  },
+  "options": {},
+  "attributes": {
+    "primaryEmail": {
+      "type": "email",
+      "required": true
+    },
+    "secondaryEmail": {
+      "type": "email"
+    },
+    "primaryPhone": {
+      "type": "string",
+      "required": true
+    },
+    "secondaryPhone": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "telegram": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "linkedIn": {
+      "type": "string"
+    },
+    "preferredContactMethod": {
+      "type": "enumeration",
+      "enum": ["email", "phone", "whatsapp", "telegram"],
+      "default": "email"
+    },
+    "businessHours": {
+      "type": "string"
+    },
+    "isPubliclyVisible": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

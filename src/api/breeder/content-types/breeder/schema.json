@@ -1,0 +1,158 @@
+{
+  "kind": "collectionType",
+  "collectionName": "breeders",
+  "info": {
+    "singularName": "breeder",
+    "pluralName": "breeders",
+    "displayName": "Breeder",
+    "description": "Dog breeders with profiles and mini-websites"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "userId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "kennelName": {
+      "type": "string",
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "richtext"
+    },
+    "experience": {
+      "type": "integer",
+      "min": 0
+    },
+    "specializations": {
+      "type": "json"
+    },
+    "certifications": {
+      "type": "json"
+    },
+    "kennelRegistration": {
+      "type": "string"
+    },
+    "isVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "verificationLevel": {
+      "type": "enumeration",
+      "enum": ["none", "basic", "premium", "elite"],
+      "default": "none"
+    },
+    "contactInfo": {
+      "type": "component",
+      "component": "shared.contact-info",
+      "required": true
+    },
+    "location": {
+      "type": "component",
+      "component": "shared.location-data",
+      "required": true
+    },
+    "miniWebsite": {
+      "type": "component",
+      "component": "shared.mini-website-config"
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "mediaGalleries": {
+      "type": "component",
+      "component": "shared.media-gallery",
+      "repeatable": true
+    },
+    "rating": {
+      "type": "decimal",
+      "min": 0,
+      "max": 5,
+      "default": 0
+    },
+    "totalReviews": {
+      "type": "integer",
+      "default": 0
+    },
+    "responseTime": {
+      "type": "integer",
+      "default": 24
+    },
+    "successfulSales": {
+      "type": "integer",
+      "default": 0
+    },
+    "joinedDate": {
+      "type": "datetime",
+      "default": "2024-01-01T00:00:00.000Z"
+    },
+    "lastActive": {
+      "type": "datetime"
+    },
+    "subscriptionTier": {
+      "type": "enumeration",
+      "enum": ["free", "basic", "premium", "enterprise"],
+      "default": "free"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "healthTestingProtocols": {
+      "type": "json"
+    },
+    "breedingPhilosophy": {
+      "type": "richtext"
+    },
+    "waitingListOpen": {
+      "type": "boolean",
+      "default": true
+    },
+    "averagePrice": {
+      "type": "decimal"
+    },
+    "priceRange": {
+      "type": "string"
+    },
+    "breedingDogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::breeding-dog.breeding-dog",
+      "mappedBy": "breeder"
+    },
+    "puppies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::puppy.puppy",
+      "mappedBy": "breeder"
+    },
+    "litters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::litter.litter",
+      "mappedBy": "breeder"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "kennelName"
+    }
+  }
+}

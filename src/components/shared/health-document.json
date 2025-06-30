@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_shared_health_documents",
+  "info": {
+    "displayName": "Health Document",
+    "icon": "file-medical",
+    "description": "Health certificates, vaccination records, and medical documentation"
+  },
+  "options": {},
+  "attributes": {
+    "documentType": {
+      "type": "enumeration",
+      "enum": ["vaccination", "health_certificate", "genetic_test", "hip_elbow_xray", "eye_exam", "heart_exam", "other"],
+      "required": true
+    },
+    "documentName": {
+      "type": "string",
+      "required": true
+    },
+    "issuedBy": {
+      "type": "string",
+      "required": true
+    },
+    "issuedDate": {
+      "type": "date",
+      "required": true
+    },
+    "expiryDate": {
+      "type": "date"
+    },
+    "result": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "document": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files"]
+    },
+    "isVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "verificationNotes": {
+      "type": "text"
+    }
+  }
+}

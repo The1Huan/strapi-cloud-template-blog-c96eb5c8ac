@@ -1,0 +1,150 @@
+{
+  "kind": "collectionType",
+  "collectionName": "litters",
+  "info": {
+    "singularName": "litter",
+    "pluralName": "litters",
+    "displayName": "Litter",
+    "description": "Planned or active litters with breeding information"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "breed": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["planned", "expecting", "born", "weaning", "ready", "completed"],
+      "default": "planned",
+      "required": true
+    },
+    "breedingDate": {
+      "type": "date"
+    },
+    "dueDate": {
+      "type": "date"
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "readyDate": {
+      "type": "date"
+    },
+    "expectedPuppies": {
+      "type": "integer"
+    },
+    "actualPuppies": {
+      "type": "integer"
+    },
+    "maleCount": {
+      "type": "integer"
+    },
+    "femaleCount": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "breedingNotes": {
+      "type": "text"
+    },
+    "whelping": {
+      "type": "json"
+    },
+    "healthTesting": {
+      "type": "json"
+    },
+    "expectedColors": {
+      "type": "json"
+    },
+    "actualColors": {
+      "type": "json"
+    },
+    "priceRange": {
+      "type": "string"
+    },
+    "basePuppyPrice": {
+      "type": "decimal"
+    },
+    "depositAmount": {
+      "type": "decimal"
+    },
+    "waitingListOpen": {
+      "type": "boolean",
+      "default": true
+    },
+    "waitingListCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "mediaGalleries": {
+      "type": "component",
+      "component": "shared.media-gallery",
+      "repeatable": true
+    },
+    "breeder": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::breeder.breeder",
+      "inversedBy": "litters"
+    },
+    "sire": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::breeding-dog.breeding-dog",
+      "required": true
+    },
+    "dam": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::breeding-dog.breeding-dog",
+      "required": true
+    },
+    "puppies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::puppy.puppy",
+      "mappedBy": "litter"
+    },
+    "applications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::application.application",
+      "mappedBy": "litter"
+    },
+    "isRepeatBreeding": {
+      "type": "boolean",
+      "default": false
+    },
+    "previousLitters": {
+      "type": "json"
+    },
+    "specialConsiderations": {
+      "type": "text"
+    },
+    "socialMedia": {
+      "type": "json"
+    },
+    "litterContract": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["files"]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    }
+  }
+}

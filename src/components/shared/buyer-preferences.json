@@ -1,0 +1,60 @@
+{
+  "collectionName": "components_shared_buyer_preferences",
+  "info": {
+    "displayName": "Buyer Preferences",
+    "icon": "heart",
+    "description": "Buyer preferences for dog breeds and characteristics"
+  },
+  "options": {},
+  "attributes": {
+    "preferredBreeds": {
+      "type": "json"
+    },
+    "sizePreference": {
+      "type": "enumeration",
+      "enum": ["toy", "small", "medium", "large", "giant", "no_preference"],
+      "default": "no_preference"
+    },
+    "energyLevel": {
+      "type": "enumeration",
+      "enum": ["low", "moderate", "high", "very_high", "no_preference"],
+      "default": "no_preference"
+    },
+    "groomingLevel": {
+      "type": "enumeration",
+      "enum": ["low", "moderate", "high", "no_preference"],
+      "default": "no_preference"
+    },
+    "goodWithChildren": {
+      "type": "enumeration",
+      "enum": ["essential", "preferred", "not_important", "no_children"],
+      "default": "not_important"
+    },
+    "goodWithPets": {
+      "type": "enumeration",
+      "enum": ["essential", "preferred", "not_important", "no_pets"],
+      "default": "not_important"
+    },
+    "apartmentFriendly": {
+      "type": "boolean"
+    },
+    "maxBudget": {
+      "type": "decimal"
+    },
+    "travelDistance": {
+      "type": "integer",
+      "default": 100
+    },
+    "experienceLevel": {
+      "type": "enumeration",
+      "enum": ["first_time", "some_experience", "experienced", "expert"],
+      "required": true
+    },
+    "specialNeeds": {
+      "type": "json"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

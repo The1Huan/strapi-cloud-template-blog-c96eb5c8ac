@@ -1,0 +1,74 @@
+{
+  "collectionName": "components_shared_mini_website_config",
+  "info": {
+    "displayName": "Mini Website Configuration",
+    "icon": "globe",
+    "description": "Configuration for breeder mini-websites with customization options"
+  },
+  "options": {},
+  "attributes": {
+    "subdomain": {
+      "type": "uid",
+      "targetField": "kennelName"
+    },
+    "customDomain": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": ["classic", "modern", "elegant", "playful"],
+      "default": "modern"
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": "#3B82F6"
+    },
+    "secondaryColor": {
+      "type": "string",
+      "default": "#10B981"
+    },
+    "logoImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "bannerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "aboutText": {
+      "type": "richtext"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "keywords": {
+      "type": "json"
+    },
+    "googleAnalyticsId": {
+      "type": "string"
+    },
+    "facebookPixelId": {
+      "type": "string"
+    },
+    "enableChat": {
+      "type": "boolean",
+      "default": true
+    },
+    "enableBooking": {
+      "type": "boolean",
+      "default": true
+    },
+    "customCSS": {
+      "type": "text"
+    }
+  }
+}

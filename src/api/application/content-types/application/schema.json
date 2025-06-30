@@ -1,0 +1,187 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications",
+  "info": {
+    "singularName": "application",
+    "pluralName": "applications",
+    "displayName": "Application",
+    "description": "Puppy applications and waiting list entries"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "applicationType": {
+      "type": "enumeration",
+      "enum": ["puppy", "litter", "waiting_list"],
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "under_review", "interview_scheduled", "approved", "rejected", "withdrawn", "completed"],
+      "default": "pending",
+      "required": true
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": ["low", "normal", "high", "urgent"],
+      "default": "normal"
+    },
+    "submittedDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "lastUpdated": {
+      "type": "datetime"
+    },
+    "reviewedDate": {
+      "type": "datetime"
+    },
+    "questionnaire": {
+      "type": "json",
+      "required": true
+    },
+    "references": {
+      "type": "json"
+    },
+    "veterinarianReference": {
+      "type": "json"
+    },
+    "housingDetails": {
+      "type": "json"
+    },
+    "familyComposition": {
+      "type": "json"
+    },
+    "previousPetExperience": {
+      "type": "richtext"
+    },
+    "reasonForGettingDog": {
+      "type": "richtext"
+    },
+    "lifestyleQuestions": {
+      "type": "json"
+    },
+    "emergencyContact": {
+      "type": "json"
+    },
+    "score": {
+      "type": "decimal",
+      "min": 0,
+      "max": 100
+    },
+    "scoringBreakdown": {
+      "type": "json"
+    },
+    "breederNotes": {
+      "type": "richtext"
+    },
+    "adminNotes": {
+      "type": "richtext"
+    },
+    "interviewScheduled": {
+      "type": "datetime"
+    },
+    "interviewCompleted": {
+      "type": "datetime"
+    },
+    "interviewNotes": {
+      "type": "richtext"
+    },
+    "homeVisitScheduled": {
+      "type": "datetime"
+    },
+    "homeVisitCompleted": {
+      "type": "datetime"
+    },
+    "homeVisitNotes": {
+      "type": "richtext"
+    },
+    "depositPaid": {
+      "type": "boolean",
+      "default": false
+    },
+    "depositAmount": {
+      "type": "decimal"
+    },
+    "depositDate": {
+      "type": "datetime"
+    },
+    "finalPaymentDue": {
+      "type": "decimal"
+    },
+    "finalPaymentDate": {
+      "type": "datetime"
+    },
+    "contractSigned": {
+      "type": "boolean",
+      "default": false
+    },
+    "contractDate": {
+      "type": "datetime"
+    },
+    "pickupDate": {
+      "type": "datetime"
+    },
+    "communicationHistory": {
+      "type": "json"
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["files", "images"]
+    },
+    "buyer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::buyer.buyer",
+      "inversedBy": "applications"
+    },
+    "breeder": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::breeder.breeder"
+    },
+    "puppy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::puppy.puppy",
+      "inversedBy": "applications"
+    },
+    "litter": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::litter.litter",
+      "inversedBy": "applications"
+    },
+    "preferredPuppyGender": {
+      "type": "enumeration",
+      "enum": ["male", "female", "no_preference"]
+    },
+    "preferredColors": {
+      "type": "json"
+    },
+    "isFlexibleOnTiming": {
+      "type": "boolean",
+      "default": true
+    },
+    "maxWaitTime": {
+      "type": "integer"
+    },
+    "followUpReminders": {
+      "type": "json"
+    },
+    "isArchived": {
+      "type": "boolean",
+      "default": false
+    },
+    "slug": {
+      "type": "uid"
+    }
+  }
+}

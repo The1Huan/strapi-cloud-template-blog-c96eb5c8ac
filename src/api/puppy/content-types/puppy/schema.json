@@ -1,0 +1,173 @@
+{
+  "kind": "collectionType",
+  "collectionName": "puppies",
+  "info": {
+    "singularName": "puppy",
+    "pluralName": "puppies",
+    "displayName": "Puppy",
+    "description": "Available puppies for sale with parent relationships"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "breed": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": ["male", "female"],
+      "required": true
+    },
+    "birthDate": {
+      "type": "date",
+      "required": true
+    },
+    "color": {
+      "type": "string"
+    },
+    "markings": {
+      "type": "text"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "expectedAdultWeight": {
+      "type": "string"
+    },
+    "microchipNumber": {
+      "type": "string"
+    },
+    "registrationEligible": {
+      "type": "boolean",
+      "default": true
+    },
+    "registrationIncluded": {
+      "type": "boolean",
+      "default": false
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "depositAmount": {
+      "type": "decimal"
+    },
+    "isAvailable": {
+      "type": "boolean",
+      "default": true
+    },
+    "availabilityStatus": {
+      "type": "enumeration",
+      "enum": ["available", "reserved", "sold", "not_for_sale"],
+      "default": "available"
+    },
+    "reservedDate": {
+      "type": "datetime"
+    },
+    "saleDate": {
+      "type": "datetime"
+    },
+    "readyDate": {
+      "type": "date"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "temperament": {
+      "type": "text"
+    },
+    "healthDocuments": {
+      "type": "component",
+      "component": "shared.health-document",
+      "repeatable": true
+    },
+    "healthChecks": {
+      "type": "json"
+    },
+    "vaccinations": {
+      "type": "json"
+    },
+    "dewormingSchedule": {
+      "type": "json"
+    },
+    "socializationActivities": {
+      "type": "json"
+    },
+    "temperamentTest": {
+      "type": "json"
+    },
+    "mediaGalleries": {
+      "type": "component",
+      "component": "shared.media-gallery",
+      "repeatable": true
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "breeder": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::breeder.breeder",
+      "inversedBy": "puppies"
+    },
+    "litter": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::litter.litter",
+      "inversedBy": "puppies"
+    },
+    "sire": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::breeding-dog.breeding-dog"
+    },
+    "dam": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::breeding-dog.breeding-dog"
+    },
+    "applications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::application.application",
+      "mappedBy": "puppy"
+    },
+    "showPotential": {
+      "type": "enumeration",
+      "enum": ["pet", "show_prospect", "breeding_prospect", "show_quality"],
+      "default": "pet"
+    },
+    "specialNeeds": {
+      "type": "text"
+    },
+    "puppyContract": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["files"]
+    },
+    "inquiryCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "viewCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    }
+  }
+}

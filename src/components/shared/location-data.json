@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_shared_location_data",
+  "info": {
+    "displayName": "Location Data",
+    "icon": "map-marker-alt",
+    "description": "Geographic location information with privacy controls"
+  },
+  "options": {},
+  "attributes": {
+    "streetAddress": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "default": "Switzerland"
+    },
+    "latitude": {
+      "type": "decimal"
+    },
+    "longitude": {
+      "type": "decimal"
+    },
+    "canton": {
+      "type": "enumeration",
+      "enum": ["AG", "AI", "AR", "BE", "BL", "BS", "FR", "GE", "GL", "GR", "JU", "LU", "NE", "NW", "OW", "SG", "SH", "SO", "SZ", "TG", "TI", "UR", "VD", "VS", "ZG", "ZH"]
+    },
+    "showExactLocation": {
+      "type": "boolean",
+      "default": false
+    },
+    "showCityOnly": {
+      "type": "boolean",
+      "default": true
+    },
+    "travelRadius": {
+      "type": "integer",
+      "default": 50
+    }
+  }
+}
